@@ -1,0 +1,1423 @@
+<style>
+
+#passwordPopup {
+display: none;
+position: fixed; top: 0; left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+justify-content: center;
+align-items: center; }
+
+#passwordContainer {
+width: 500px;
+margin: 20px auto;
+padding: 30px;
+background-color: rgba(255, 255, 255, 1);
+border-radius: 40px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 38px; }
+
+#passwordContainer h3 {
+margin: 0 0 10px; }
+
+#passwordInput {
+width: 350px;
+height: 80px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #9900FF;
+font-size: 45px; }
+
+#passwordError {
+margin: 0 0 10px; }
+
+#passwordButton {
+width: 200px;
+height: 70px;
+margin: 10px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0.5);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #9900FF;
+font-size: 35px; }
+
+body{
+
+background-image: url("https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Backgroud.jpeg");
+background-repeat: repeat; }
+
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+max-width: 950px;
+margin: 0 auto;
+padding: 10px; /* không sửa*/
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
+.containerD{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+max-width: 850px;
+margin: 0 auto;
+padding: 10px; /* không sửa*/
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
+.container1{
+width: 850px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 50px; }
+
+.content {
+display: none;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 30px;
+font-size: 50px;
+color: #59450f;
+width: 900px; }
+
+.content.active {
+display: block; }
+
+.tabs {
+display: flex; }
+
+.tab {
+height: 60px;
+padding: 25px;
+border: 1px solid #ccc;
+border-radius: 30px;
+margin: 10px;
+cursor: pointer;
+font-size: 50px;
+color: #CC00FF;
+font-weight: bold;
+background-color: rgba(255, 255, 255, 0.15);
+box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+text-align: center;
+justify-content: center;
+align-items: center; }
+
+.tab.active {
+background-color: #E6E6FA; }
+
+h0 {
+text-align: center;
+font-size: 55px;
+margin-bottom: 20px;
+color: #CC00FF;
+font-weight: bold; }
+
+h1{
+text-align: center;
+font-size: 55px;
+margin-bottom: 20px;
+color: #CC00FF; }
+
+p {
+font-size: 30px;
+line-height: 1; /* văn bản trên cách vb dưới */
+margin-bottom: 0px;
+margin-top: 3px;
+color: #9900FF;
+text-align:center;
+margin:3px;
+display:inline-block;
+padding-top: 10px;
+padding-bottom: 10px; }
+
+p1{
+font-size: 45px;
+line-height: 1.5; /* văn bản trên cách vb dưới */
+margin-bottom: 0px;
+margin-top: 3px;
+color: #9900FF;
+text-align:center;
+margin:3px;
+display:inline-block;
+padding-top: 10px;
+padding-bottom: 10px; }
+
+p2{
+font-size: 55px;
+line-height: 1.5;
+margin-bottom: 0px;
+margin-top: 3px;
+color: #CC00FF;
+text-align:center;
+margin:3px;
+font-weight: bold;
+display:inline-block;
+padding-top: 10px;
+padding-bottom: 10px; }
+
+.label {
+color: #CC00FF;
+font-size: 50px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-align-last: left; }
+
+.input {
+width: 800px;
+height: 100px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 40px; }
+
+.input2 {
+width: 800px;
+height: 100px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 40px; }
+
+.input3 {
+width: 900px;
+height: 1000px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: left;
+display: flex;
+justify-content: left;
+align-items: left;
+font-size: 40px;
+color: #9900FF;
+word-break: break-all; }
+
+.input4 {
+width: 900px;
+height: 500px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: left;
+display: flex;
+justify-content: left;
+align-items: left;
+font-size: 40px;
+color: #9900FF;
+word-break: break-all; }
+
+.input5 {
+width: 600px;
+height: auto;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: left;
+display: flex;
+flex-direction: column;
+justify-content: left;
+align-items: left;
+font-size: 50px;
+color: #9900FF;
+word-break: break-all; }
+
+.input6 {
+width: 900px;
+height: 70px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 22px; }
+
+.resultA {
+width: 850px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+display: flex;
+justify-content: left;
+align-items: center;
+font-size: 45px;
+color: #9900FF; }
+
+#resultA,  #resultB, #resultC, #encryptedLinks, #output, #decodedResult  {
+display: block;
+word-break: break-all; }
+
+.image {
+width: 140px;
+height: 140px;
+margin-right: 20px;
+border-radius: 25px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }
+
+.bundle-id {
+padding-left: 20px; }
+
+.dow {
+width: 400px;
+height: 100px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 50px;
+font-weight: bold; }
+
+.dow2 {
+width: 260px;
+height: 100px;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 50px;
+font-weight: bold;
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-align-last: center; }
+
+.dow3 {
+width: 600px;
+height: 100px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 50px;
+font-weight: bold; }
+
+.dow4 {
+width: 950px;
+height: 300px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: left;
+display: flex;
+justify-content: center;
+align-items: left;
+font-size: 40px; }
+
+.dow5 {
+width: 950px;
+height: 1500px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 40px;
+font-weight: bold; }
+
+.boxed-link {
+width: 800px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 45px;
+color: #9900FF;
+display: block;
+word-break: break-all; }
+
+.menu-icon {
+display: flex;
+flex-direction: column-reverse;
+justify-content: center;
+align-items: center;
+height: 50px;
+width: 50px;
+cursor: pointer;
+border-radius: 20%;
+background-color: rgba(255, 255, 255, 0.6);
+padding: 18px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
+.menu-icon span {
+width: 80%;
+height: 2px;
+background-color: #F0F;
+margin: 4px 0;
+border-radius: 1px;
+z-index: 990; }
+
+.menu-options {
+display: none;
+position: absolute;
+top: 320px; left: 0;
+padding: 10px;
+border-radius: 40px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+background-color: rgba(255, 255, 255, 1);
+padding-left: 0px; /* Thêm lề trái */
+padding-right: 0px; /* Thêm lề phải */
+z-index: 990; }
+
+.menu-options ul {
+list-style-type: none;
+padding: 10px;
+margin: 20px;
+z-index: 990; }
+
+.menu-options li {
+border-radius: 20px;
+margin-top: 5px;
+background-color: #E6E6FA; /* Thay đổi giá trị background-color thành màu tím nhạt */
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+background-size: cover;
+background-position: center;
+text-align: left;
+padding-left: 30px; /* Thêm lề trái */
+padding-right: 30px; /* Thêm lề phải */
+z-index: 990; }
+
+.menu-options a {
+text-decoration: none;
+color: #000;
+font-size: 45px;
+border-radius: 10px;
+z-index: 990; }
+
+a {
+text-decoration: none;
+color: #CC00FF; }
+
+#regionSelect {
+padding: 20px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+font-size: 40px;
+width: 200px;
+margin: 20px auto;
+padding: 20px;
+height: 100px;
+color: #9900FF;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center; }
+
+.flash {animation: flash-animation 1s infinite;}
+@keyframes flash-animation {50% {
+background-color: rgba(152, 251, 152, 0.9); }}
+
+#nhac {
+position: fixed;
+top: 900px;
+background-color: rgba(255, 255, 255, 0.6);
+padding: 15px 25px;
+border-radius: 25px;
+text-align: center;
+text-decoration: none;
+transition: background-color 0.3s;
+justify-content: flex-start;
+right: 10px;
+width: 120px;
+height: 50px;
+margin: 20px auto;
+padding: 10px;
+text-align: center;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 43px; }
+
+#nhac:hover {
+background-color: rgba(255, 255, 255, 0.6); }
+
+#music-control {
+display: flex;
+flex-direction: column;
+position: fixed;
+width: 100px;
+height: 410px;
+background-color: rgba(255, 255, 255, 0.6);
+border: 1px solid #ccc;
+border-radius: 30px;
+top: 1000px;
+z-index: 1000;
+align-items: center;
+justify-content: center;
+padding: 20px;
+right: 10px;
+
+}
+
+a.button,
+button.button {
+width: 370px;
+height: 60px;
+margin: 20px auto;
+padding: 10px;
+background-color: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #CC00FF;
+font-size: 50px;
+font-weight: bold; }
+
+button {
+font-size: 35px;
+padding: 10px 20px;
+background-color: #007bff;
+color: #9900FF;
+border: none;
+border-radius: 30px;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+margin-top: 20px;
+margin-bottom: 20px; }
+
+</style>
+
+<!☘️Tạo Mật Khẩu>
+<div id="passwordPopup">
+<div id="passwordContainer">
+<h3>Vui lòng nhập mật khẩu</h3>
+<input type="password" id="passwordInput" placeholder="Nhập mật khẩu" required>
+<p id="passwordError" style="display:none;color:red;">Sai mật khẩu. Vui lòng thử lại.</p>
+<button id="passwordButton">Xác nhận</button>
+</div></div>
+<!☘️Hết Tạo Mật Khẩu>
+
+<title>HOA CÚC TRẮNG</title>
+<link rel="/180.png" href=/favicon.ico" type="image/x-icon">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Chặn Thu Hồi">
+<link rel="apple-touch-icon" sizes="180x180" href="/180.png"> <br />
+
+<div class="containerD">
+<h0>🍀🌵 Hoa Cúc Trắng 🌵🍀<br />
+<p> <a href="https://www.facebook.com/profile.php?id=61552569936923&mibextid=JRoKGi" style="text-decoration: none; color: #9900FF; font-size: 42px;">++TẠO BỞI BÌNH MINH++</a> </p> </h0>
+</div><br />
+
+<div class="menu-icon" id="menu-icon">
+<span></span><span></span><span></span></div>
+<div class="menu-options" id="menu-options"><ul>
+
+<li style="margin-bottom: 30px;"><a href="http://hoacuctrang.wap.sh" style="color: #CC00FF; font-size: 50px;">🌵 Esign</a></li>
+<li style="margin-bottom: 30px;"><a href="trollX" style="color: #CC00FF; font-size: 50px;">🌵 TrollInstallerX</a></li>
+<li style="margin-bottom: 30px;"><a href="chanthuhoi" style="color: #CC00FF; font-size: 50px;">🌵 Tạo Cấu Hình Chặn Thu Hồi</a></li>
+<li style="margin-bottom: 30px;"><a href="linkcaiipa" style="color: #CC00FF; font-size: 50px;">🌵 Tạo Link Cài IPA - Bundle ID</a></li>
+<li style="margin-bottom: 30px;"><a href="kyipa" style="color: #CC00FF; font-size: 50px;">🌵 Ký App Game Online</a></li>
+<li style="margin-bottom: 30px;"><a href="dichstrings" style="color: #CC00FF; font-size: 50px;">🌵 Dịch File Ngôn Ngữ</a></li>
+<li style="margin-bottom: 30px;"><a href="https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/ChatAI.mobileconfig" style="color: #CC00FF; font-size: 50px;">🌵 Cấu Hình Chat AI</a></li>
+<li style="margin-bottom: 30px;"><a href="hotro" style="color: #CC00FF; font-size: 50px;">🌵 Chia Sẽ - Hỗ Trợ</a></li>
+<li style="margin-bottom: 30px;"><a href="riengminh" style="color: #CC00FF; font-size: 50px;">🌵 Riêng Mình</a></li>
+
+</ul> </div> <br />
+
+
+
+<div class="container">
+
+<br />
+<div class="tabs">
+<div class="tab active" onclick="openTab(event, 'tab1')">Tạo Plist</div>
+<div class="tab" onclick="openTab(event, 'tab2')">Direct</div>
+<div class="tab" onclick="openTab(event, 'tab3')">Direct & Pass</div> </div>
+<div class="tabs">
+<div class="tab" onclick="openTab(event, 'tab5')">Config Pass</div>
+<div class="tab" onclick="openTab(event, 'tab6')">UnPass</div>
+<div class="tab" onclick="openTab(event, 'tab7')">Test Plist</div>
+</div>
+
+<div class="tabs">
+<div class="tab" onclick="openTab(event, 'tab9')">Edit Esign</div>
+<div class="tab" onclick="openTab(event, 'tab10')">Edit TrollX</div>
+<div class="tab" onclick="openTab(event, 'tab11')">Ed VikiNew</div>
+</div>
+
+<div class="tabs">
+<div class="tab" onclick="openTab(event, 'tab12')">Xoá Tệp</div>
+<div class="tab" onclick="openTab(event, 'tab13')">Úp Guthub</div>
+<div class="tab" onclick="openTab(event, 'tab14')">Dow Guthub</div>
+</div>
+
+<div class="tabs">
+<div class="tab" onclick="openTab(event, 'tab15')">Bỏ Dấu Cách Đầu Cuối</div>
+</div>
+
+<br />
+
+
+<!TAB ☘️ 11111>
+<div class="content" id="tab1">
+<label class="label">Tên App:</label>
+<input type="text" id="khung2" class="input">
+<label class="label">Bundle ID:</label>
+<textarea id="khung1" class="input"></textarea>
+<label class="label">Link IPA:</label>
+<input type="text" id="khung3" class="input">
+<label class="label">Phiên Bản IPA:</label>
+<input type="text" id="khung5" class="input">
+<label class="label">Tên Plist Không Đuôi:</label>
+<input type="text" id="khung4" class="input">
+<label class="label">Kho Lưu Trữ:</label>
+<div class="input2">
+<div class="radio-group">
+
+<input type="radio" id="TestOption" name="repo" value="Test" checked>
+<label for="TestOption">🍄☘️ Test ☘️🍄</label> <br />
+<input type="radio" id="EmXinOption" name="repo" value="EmXin">
+<label for="EmXinOption"> 🍄☘️ EmXin ☘️</label>🍄
+<input type="radio" id="TrollXOption" name="repo" value="TrollX">
+<label for="TrollXOption">🍄☘️ TrollX ☘️🍄</label>
+
+</div></div>
+
+<button onclick="thayThe()" class="dow">Tạo Link</button>
+
+<br />
+
+<div id="customPlacement"></div>
+
+</div>
+<!Hết ☘️ Tab 111>
+
+
+<!TAB ☘️ 22222>
+<div class="content" id="tab2">
+
+<input type="text" id="inputData" class="input" placeholder="Nhập dữ liệu">
+<button onclick="submitForm()" class="dow">Tạo Link</button>
+<textarea class="input4" id="resultC"></textarea>
+
+<br />
+</div> <!Hết ☘️ 222222>
+
+<!TAB ☘️ 3333>
+<div class="content" id="tab3">
+
+<textarea class="input" id="linkInput"></textarea>
+<button onclick="encryptLinks()" class="dow">Mã Hoá</button>
+<textarea class="input4" id="encryptedLinks"></textarea>
+
+
+<br />
+</div> <!Hết ☘️ 3333>
+
+
+<!TAB ☘️ 55555>
+<div class="content" id="tab5">
+
+<textarea class="input" id="inputText"></textarea>
+<button onclick="encodeText()" class="dow">Mã Hoá</button>
+<textarea class="input4" id="output"></textarea>
+
+<br />
+</div> <!Hết ☘️ 5555>
+
+
+<!TAB ☘️ 66666>
+<div class="content" id="tab6">
+
+<textarea class="input" id="iinputText"></textarea>
+<button onclick="decodeText()" class="dow">Giải Mã</button>
+<textarea class="input4" id="ooutput"></textarea>
+
+<br />
+</div> <!Hết ☘️ 66666>
+
+<!TAB ☘️ 7777>
+<div class="content" id="tab7">
+
+<textarea id="resultTab7" class="input4"></textarea>
+<button onclick="reloadGithub()" class="dow">Load Lại</button>
+<button onclick="extractText()" class="dow">Tách Văn Bản</button>
+<button onclick="copyTextTab7()" class="dow">Sao chép</button>
+
+<textarea id="newTextArea" class="input4" readonly></textarea>
+<button onclick="removeLineBreaks()" class="dow">Bỏ Dấu</button>
+<button onclick="copyTextT()" class="dow">Sao chép</button>
+
+<br />
+</div> <!Hết ☘️ 77777>
+
+
+<!TAB ☘️ 99999>
+<div class="content" id="tab9">
+
+<textarea id="uniqueFileContent" class="input3"></textarea>
+<button onclick="modifyUniqueFile()" class="dow">Cập Nhật Es</button>
+
+</div>
+<!Hết ☘️ 9999>
+
+<!TAB ☘️ 10000>
+<div class="content" id="tab10">
+
+<textarea id="fileContentBB" class="input3"></textarea>
+<button onclick="updateFileBB()" class="dow">Cập Nhật Tro</button>
+
+</div>
+<!Hết ☘️ 100000>
+
+<!TAB ☘️ 1111111>
+<div class="content" id="tab11">
+
+<textarea id="vikiFileContent" class="input4"></textarea>
+<button onclick="updatevikiFile()" class="dow">Cập Nhật Viki</button>
+
+</div>
+<!Hết ☘️ 1111111>
+
+
+<!TAB ☘️ 12222222>
+<div class="content" id="tab12">
+
+<label class="label">Kho Lưu Trữ:</label>
+<select class="dow2" id="repo-select" onchange="fetchFiles()">
+<option value="EmXin">EmXin</option>
+<option value="TrollX">TrollX</option>
+<option value="Test">Test</option>
+<option value="Ipa">IPA</option>
+<option value="Config">Config</option>
+<option value="User">User</option>
+<option value="Chat">Chat</option>
+<option value="Plist">Plist</option>
+<option value="EsignPlus">EsignPlus</option>
+<option value="icons">icons</option>
+<option value="Blockota">Blockota</option>
+</select>
+
+<div class="input5" id="file-list"></div>
+<button onclick="fetchFiles()" class="dow">Load Lại</button>
+<button onclick="deleteSelectedFiles()"
+class="dow">Xóa Tệp</button>
+
+</div>
+<!Hết ☘️ 12222222>
+
+<!TAB ☘️ 1333333>
+<div class="content" id="tab13">
+
+<label class="label">Kho Lưu Trữ:</label>
+<select class="dow2" id="repoSelect">
+<option value="EmXin">EmXin</option>
+<option value="TrollX">TrollX</option>
+<option value="Test">Test</option>
+<option value="Ipa">IPA</option>
+<option value="Config">Config</option>
+<option value="User">User</option>
+<option value="Chat">Chat</option>
+<option value="Plist">Plist</option>
+<option value="EsignPlus">EsignPlus</option>
+<option value="icons">icons</option>
+<option value="Blockota">Blockota</option>
+</select>
+
+<label class="label">Chọn Tệp:</label>
+<input type="file" id="fileInput" class="input" />
+
+<button onclick="uploadFile()" class="dow">Tải Lên</button>
+
+<h0><div id="progress"></div></h0>
+
+<br />
+
+<input class="input6" id="linkInput2" style="display:none;" readonly />
+
+<div id="downloadLink"></div>
+<button id="downloadButton" style="display:none;" class="dow">Tải Xuống</button>
+
+<button id="copyButton" style="display:none;" onclick="copyLink()" class="dow">Sao Chép Link</button>
+
+
+</div>
+<!Hết ☘️ 133333>
+
+<!TAB ☘️ 144444>
+<div class="content" id="tab14">
+
+<label class="label">Kho Lưu Trữ:</label>
+<select class="dow2" id="repoSelect1" onchange="fetchFileList1()">
+<option value="EmXin">EmXin</option>
+<option value="TrollX">TrollX</option>
+<option value="Test">Test</option>
+<option value="Ipa">IPA</option>
+<option value="Config">Config</option>
+<option value="User">User</option>
+<option value="Chat">Chat</option>
+<option value="Plist">Plist</option>
+<option value="EsignPlus">EsignPlus</option>
+<option value="icons">icons</option>
+<option value="Blockota">Blockota</option>
+</select>
+
+<div id="fileList1" class="input5"></div>
+<button onclick="downloadSelectedFiles()" class="dow">Tải Xuống</button>
+
+</div>
+<!Hết ☘️ 144444>
+
+<!TAB ☘️ 155555>
+<div class="content" id="tab15">
+
+<textarea id="textarea" placeholder="Nhập văn bản vào đây..." class="input4"></textarea>
+<div id="buttons">
+<button onclick="removeLeadingSpaces()" class="dow3">Bỏ Dấu Cách Đầu Cuối</button>
+<button onclick="copyTextS()" class="dow">Sao Chép</button> </div>
+</div>
+<!Hết ☘️ 155555>
+
+
+
+
+<br /> <br /> <br />
+
+
+<img src="https://raw.githubusercontent.com/Nguyenhuyhoan/Hotgirl/main/26.jpeg" style="border-radius: 50px; max-width: 100%; background-color: rgba(255, 255, 255, 0.7);
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+padding: 1px;">
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</div> <!☘️Hết Tab  container - Tab 1+2 ☘️>
+
+
+
+<!☘️Bỏ dấu cách đầu và cuối dòng ☘️>
+<script>
+function removeLeadingSpaces() {const textarea = document.getElementById('textarea');
+const lines = textarea.value.split('\n');
+let trimmedLines = [];
+for (let i = 0; i < lines.length; i++) {
+trimmedLines.push(lines[i].trim());}
+textarea.value = trimmedLines.join('\n');}
+function copyTextS() {const textarea = document.getElementById('textarea');
+textarea.select();
+document.execCommand('copy');
+alert('Văn bản đã được sao chép!');}
+</script>
+
+<!☘️Tải Tệp Từ Github Về Máy ☘️>
+<script>
+async function fetchFileList1() {
+const repoSelect1 = document.getElementById('repoSelect1');
+const selectedRepo1 = repoSelect1.value;
+const owner = 'Nguyenhuyhoan';
+const repo = selectedRepo1;
+const url = `https://api.github.com/repos/${owner}/${repo}/contents`;
+try {const response = await fetch(url);
+const files = await response.json(); const fileList1Div = document.getElementById('fileList1');
+fileList1Div.innerHTML = '';
+files.forEach(file => {if (file.type === 'file') {
+const checkbox = document.createElement('input');
+checkbox.type = 'checkbox';
+checkbox.id = `file-${file.name}`;
+checkbox.value = file.path;
+const label = document.createElement('label');
+label.htmlFor = `file-${file.name}`;
+label.innerText = file.name;
+const div = document.createElement('div');
+div.appendChild(checkbox); div.appendChild(label);
+fileList1Div.appendChild(div);}});} catch (error) {
+alert('Có lỗi xảy ra khi lấy danh sách tệp.');
+console.error(error);}}
+async function downloadSelectedFiles() {
+const checkboxes = document.querySelectorAll('#fileList1 input[type="checkbox"]:checked');
+if (checkboxes.length === 0) {
+alert('Vui lòng chọn ít nhất một tệp để tải xuống.'); return;}
+const owner = 'Nguyenhuyhoan';
+const repoSelect1 = document.getElementById('repoSelect1');
+const selectedRepo1 = repoSelect1.value;
+checkboxes.forEach(async (checkbox) => {
+const filePath1 = checkbox.value;
+const url = `https://api.github.com/repos/${owner}/${selectedRepo1}/contents/${filePath1}`; try {
+const response = await fetch(url, {headers: {
+'Accept': 'application/vnd.github.v3.raw'}});
+const blob = await response.blob();
+const downloadUrl = URL.createObjectURL(blob);
+const link = document.createElement('a');
+link.href = downloadUrl;
+link.download = filePath1.split('/').pop();
+document.body.appendChild(link); link.click();
+document.body.removeChild(link);} catch (error) {
+alert(`Có lỗi xảy ra khi tải xuống tệp: ${filePath1}`);
+console.error(error);}});}
+fetchFileList1();
+</script>
+
+
+<!☘️Tải Tệp Lên Github ☘️>
+
+<script>
+async function uploadFile() {
+const fileInput = document.getElementById('fileInput');
+const file = fileInput.files[0];
+const repoSelect = document.getElementById('repoSelect');
+const selectedRepo = repoSelect.value; if (!file) {
+alert('Vui lòng chọn tệp để tải lên.'); return;}
+const UP = 'GyFZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA==';
+const token = atob(UP.slice(3));
+const owner = 'Nguyenhuyhoan';
+const repo = selectedRepo;
+const path = file.name;
+const message = 'Add new file: ' + file.name;
+const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+const reader = new FileReader();
+reader.onload = async function () {
+const base64Content = btoa(new Uint8Array(reader.result).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+let sha = null; try {
+const response = await fetch(url, {
+method: 'GET', headers: {
+'Authorization': `token ${token}`}});
+if (response.status === 200) {
+const data = await response.json(); sha = data.sha;
+const overwrite = confirm('Tệp đã tồn tại. Bạn có muốn ghi đè không?');
+if (!overwrite) {
+return;}}} catch (error) {
+console.error('Error checking file existence:', error);}
+const xhr = new XMLHttpRequest();
+xhr.open('PUT', url, true);
+xhr.setRequestHeader('Authorization', `token ${token}`);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.upload.onprogress = function (event) {
+if (event.lengthComputable) {
+const percentComplete = (event.loaded / event.total) * 100;
+document.getElementById('progress').innerText = `Đang tải: ${percentComplete.toFixed(2)}%`;}};
+xhr.onload = function () {
+if (xhr.status >= 200 && xhr.status < 300) {
+const data = JSON.parse(xhr.responseText);
+document.getElementById('progress').innerText = '';
+const downloadButton = document.getElementById('downloadButton');
+downloadButton.style.display = 'block';
+downloadButton.onclick = function () {
+window.open(data.content.download_url, '_blank');};
+const linkInput2 = document.getElementById('linkInput2');
+linkInput2.style.display = 'block';
+linkInput2.value = data.content.download_url;
+const copyButton = document.getElementById('copyButton');
+copyButton.style.display = 'block'; } else {
+const errorData = JSON.parse(xhr.responseText);
+alert(`Có lỗi xảy ra khi tải tệp lên. Chi tiết: ${errorData.message}`);}};
+xhr.onerror = function () {
+alert('Có lỗi xảy ra khi tải tệp lên.');};
+const payload = {message: message,
+content: base64Content};
+if (sha) {payload.sha = sha;}
+xhr.send(JSON.stringify(payload));};
+reader.readAsArrayBuffer(file);}
+function copyLink() {const linkInput2 = document.getElementById('linkInput2');
+linkInput2.select();
+linkInput2.setSelectionRange(0, 99999);
+try {const successful = document.execCommand('copy');
+const msg = successful ? 'Link đã được sao chép!' : 'Không thể sao chép link!';
+alert(msg);} catch (err) {
+alert('Không thể sao chép link!');}}
+</script>
+
+
+<!☘️Xoá Tệp ☘️>
+<script>
+const Xoa = 'HpUZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA==';
+const token = atob(Xoa.slice(3));
+function getSelectedRepo() {
+const select = document.getElementById('repo-select'); return select.value;}
+async function fetchFiles() {
+const repo = `Nguyenhuyhoan/${getSelectedRepo()}`;
+const response = await fetch(`https://api.github.com/repos/${repo}/contents`, {headers: {
+'Authorization': `token ${token}`}});
+const files = await response.json();
+displayFiles(files);}
+function displayFiles(files) {
+const fileList = document.getElementById('file-list');
+fileList.innerHTML = '';files.forEach(file => {
+const fileItem = document.createElement('div');
+fileItem.innerHTML = `
+<input type="checkbox" id="${file.path}" name="files" value="${file.path}" data-sha="${file.sha}">
+<label for="${file.path}">${file.name}</label> `;
+fileList.appendChild(fileItem);});}
+async function deleteSelectedFiles() {
+const repo = `Nguyenhuyhoan/${getSelectedRepo()}`;
+const selectedFiles = document.querySelectorAll('input[name="files"]:checked');selectedFiles.forEach(async (file) => {
+const sha = file.dataset.sha;
+const response = await fetch(`https://api.github.com/repos/${repo}/contents/${file.value}`, {method: 'DELETE', headers: {
+'Authorization': `token ${token}`,
+'Content-Type': 'application/json'},
+body: JSON.stringify({
+message: `Delete file ${file.value}`,sha: sha})});
+if (response.ok) {
+console.log(`Deleted: ${file.value}`);
+file.parentElement.remove();} else {
+console.error(`Failed to delete: ${file.value}`);}});}
+fetchFiles();
+</script>
+
+
+<!☘️VikiNew Config ☘️>
+<script>
+const Viki = 'FsGZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA==';
+const vikiToken = atob(Viki.slice(3));
+const vikiRepoOwner = 'Nguyenhuyhoan';
+const vikiRepoName = 'Config';
+const vikiFilePath = 'VikiNew';
+async function getvikiFileContent() {try {
+const response = await fetch(`https://api.github.com/repos/${vikiRepoOwner}/${vikiRepoName}/contents/${vikiFilePath}`, {
+headers: {
+'Authorization': `token ${vikiToken}`}});
+if (!response.ok) {
+throw new Error('');}
+const data = await response.json();
+const encodedContent = atob(data.content);
+const content = new TextDecoder().decode(Uint8Array.from(atob(encodedContent.slice(3)), c => c.charCodeAt(0)));
+document.getElementById('vikiFileContent').textContent = content;
+} catch (error) {
+console.error('', error);alert('');}}
+function addRandomUppercasePrefix(encodedContent) {
+const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let prefix = '';
+for (let i = 0; i < 3; i++) {prefix += randomChars.charAt(Math.floor(Math.random() * randomChars.length));}
+return prefix + encodedContent;}
+async function updatevikiFile() {
+const newvikiContent = document.getElementById('vikiFileContent').value;
+const newvikiContentEncoded = btoa(String.fromCharCode(...new TextEncoder().encode(newvikiContent)));
+const prefixedContent = addRandomUppercasePrefix(newvikiContentEncoded); try {
+const shaResponse = await fetch(`https://api.github.com/repos/${vikiRepoOwner}/${vikiRepoName}/contents/${vikiFilePath}`, {
+headers: {'Authorization': `token ${vikiToken}`}});
+if (!shaResponse.ok) {throw new Error('');}
+const shaData = await shaResponse.json();
+const updateResponse = await fetch(`https://api.github.com/repos/${vikiRepoOwner}/${vikiRepoName}/contents/${vikiFilePath}`, {
+method: 'PUT', headers: {
+'Authorization': `token ${vikiToken}`,
+'Content-Type': 'application/json'},
+body: JSON.stringify({message: "",
+content: btoa(prefixedContent),
+sha: shaData.sha})});
+if (!updateResponse.ok) {throw new Error('');}
+alert('Cập nhật Viki thành công!');} catch (error) {
+console.error('Error updating file:', error);
+alert('Lỗi khi cập nhật Viki.');}}
+getvikiFileContent();
+</script>
+
+<!☘️Edit Esign ☘️>
+<script>
+const Exin = 'TsEZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA==';
+const myToken = atob(Exin.slice(3));
+const myRepoOwner = 'Nguyenhuyhoan';
+const myRepoName = 'icons';
+const myFilePath = 'Esign';
+async function fetchUniqueFileContent() {
+const response = await fetch(`https://api.github.com/repos/${myRepoOwner}/${myRepoName}/contents/${myFilePath}`, {
+headers: {
+'Authorization': `token ${myToken}`}});
+const data = await response.json();
+const content = new TextDecoder().decode(Uint8Array.from(atob(data.content), c => c.charCodeAt(0)));
+document.getElementById('uniqueFileContent').textContent = content;}
+async function modifyUniqueFile() {
+const newContent = document.getElementById('uniqueFileContent').value;
+const newContentEncoded = btoa(String.fromCharCode(...new TextEncoder().encode(newContent)));
+const shaResponse = await fetch(`https://api.github.com/repos/${myRepoOwner}/${myRepoName}/contents/${myFilePath}`, {
+headers: {
+'Authorization': `token ${myToken}`}});
+const shaData = await shaResponse.json();
+await fetch(`https://api.github.com/repos/${myRepoOwner}/${myRepoName}/contents/${myFilePath}`, {method: 'PUT', headers: {
+'Authorization': `token ${myToken}`,
+'Content-Type': 'application/json'},
+body: JSON.stringify({
+message: "Update AA file content via web",
+content: newContentEncoded,
+sha: shaData.sha})});
+alert('Cập nhật Esign thành công!');}
+fetchUniqueFileContent();
+</script>
+
+
+<!☘️Edit TrollX ☘️>
+<script>
+const Troi = 'SwqZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA==';
+const tokenBB = atob(Troi.slice(3));
+const repoOwnerBB = 'Nguyenhuyhoan';
+const repoNameBB = 'icons';
+const filePathBB = 'TrollX';
+async function getFileContentBB() {
+const response = await fetch(`https://api.github.com/repos/${repoOwnerBB}/${repoNameBB}/contents/${filePathBB}`, {
+headers: {
+'Authorization': `token ${tokenBB}`}});
+const data = await response.json();
+const content = new TextDecoder().decode(Uint8Array.from(atob(data.content), c => c.charCodeAt(0)));
+document.getElementById('fileContentBB').textContent = content;}
+async function updateFileBB() {
+const newContentBB = document.getElementById('fileContentBB').value;
+const newContentEncodedBB = btoa(String.fromCharCode(...new TextEncoder().encode(newContentBB)));
+const shaResponseBB = await fetch(`https://api.github.com/repos/${repoOwnerBB}/${repoNameBB}/contents/${filePathBB}`, {
+headers: {
+'Authorization': `token ${tokenBB}`}});
+const shaDataBB = await shaResponseBB.json();
+await fetch(`https://api.github.com/repos/${repoOwnerBB}/${repoNameBB}/contents/${filePathBB}`, {
+method: 'PUT', headers: {
+'Authorization': `token ${tokenBB}`,
+'Content-Type': 'application/json'},
+body: JSON.stringify({
+message: "Update BB file content via web",
+content: newContentEncodedBB,
+sha: shaDataBB.sha})});
+alert('Cập nhật TrollX thành công!');}
+getFileContentBB();
+</script>
+
+
+<!☘️Bỏ Văn Bản Đã Chọn Test Plist>
+
+<script>
+async function fetchFilesFromEsign() {
+const response = await fetch('https://api.github.com/repos/Nguyenhuyhoan/Test/git/trees/main?recursive=1');
+const data = await response.json();
+const file = data.tree.find(file => !file.path.includes('.') && file.type === 'blob');
+if (file) {
+const fileResponse = await fetch(file.url);
+const fileData = await fileResponse.json();
+const content = atob(fileData.content);
+document.getElementById('resultTab7').value = content; } }
+function copyTextTab7() {
+const textarea = document.getElementById('resultTab7');
+textarea.select();
+document.execCommand('copy');
+alert('Đã sao chép văn bản!'); }
+function extractText() {
+const textarea = document.getElementById('resultTab7');
+const text = textarea.value;
+const startTag = `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n<key>items</key>\n<array>`;
+const endTag = `</array>\n</dict>\n</plist>`;
+let extractedText = text;
+if (text.startsWith(startTag)) {
+extractedText = extractedText.slice(startTag.length); }
+if (extractedText.endsWith(endTag)) {
+extractedText = extractedText.slice(0, -endTag.length); }
+textarea.value = extractedText.trim(); }
+function reloadGithub() {
+fetchFilesFromEsign(); }
+fetchFilesFromEsign();
+</script>
+
+<!☘️Bỏ Dấu Xuống Dòng và dấu cách Của Văn Bản Test Plist>
+<script>
+function removeLineBreaks() {
+var originalText = document.getElementById('resultTab7').value;
+var modifiedText = originalText.replace(/\s+/g, '');
+document.getElementById('newTextArea').value = modifiedText; }
+function copyTextT() {
+var newText = document.getElementById('newTextArea');
+newText.select();
+newText.setSelectionRange(0, 99999);
+document.execCommand("copy");
+alert("Văn bản đã được sao chép"); }
+</script>
+
+
+<!☘️Mã hoá văn bản CONFIG> <script>
+function encodeText() {try {const text = document.getElementById('inputText').value;
+const utf8Encoder = new TextEncoder();
+const uint8Array = utf8Encoder.encode(text);
+const base64String = btoa(String.fromCharCode(...uint8Array));
+document.getElementById('output').value = base64String; } catch (error) {
+console.error('Error encoding text:', error);}}
+</script>
+
+<!☘️Giải mã văn bản từ CONFIG>
+<script>
+function decodeText() {try {
+const base64Text = document.getElementById('iinputText').value;
+const binaryString = atob(base64Text);
+const binaryLen = binaryString.length;
+const bytes = new Uint8Array(binaryLen);
+for (let i = 0; i < binaryLen; i++) {
+bytes[i] = binaryString.charCodeAt(i);}
+const utf8Decoder = new TextDecoder();
+const decodedText = utf8Decoder.decode(bytes);
+document.getElementById('ooutput').value = decodedText; } catch (error) {
+console.error('Error decoding text:', error);}}
+</script>
+
+<!☘️Script Direct Link>
+<script>
+function submitForm() {var inputData = document.getElementById("inputData").value;
+var resultText = processData(inputData);
+document.getElementById("resultC").innerHTML = resultText;}
+function processData(inputData) {
+inputData = inputData.replace("blob/main", "raw/main");
+inputData = inputData.replace("dl=0", "amp;amp;dl=1");
+inputData = inputData.replace("www.dropbox.com", "dl.dropboxusercontent.com"); return inputData;}
+</script>
+
+
+<!☘️Script Pot>
+<script>
+var passwordPopup = document.getElementById("passwordPopup");
+var passwordContainer = document.getElementById("passwordContainer");
+var passwordInput = document.getElementById("passwordInput");
+var passwordError = document.getElementById("passwordError");
+var passwordButton = document.getElementById("passwordButton");
+passwordButton.addEventListener("click", function() { var password = "ll";
+var enteredPassword = passwordInput.value;
+if (enteredPassword === password) {
+passwordPopup.style.display = "none";
+} else {passwordError.style.display = "block";}});
+passwordPopup.style.display = "flex";
+passwordContainer.style.top = window.innerHeight / 2 - passwordContainer.offsetHeight / 2 + "px";
+passwordContainer.style.left = window.innerWidth / 2 - passwordContainer.offsetWidth / 2 + "px";
+</script>
+
+<!🌸Script Tạo Link Cài IPA>
+<script>
+function flashInput(element) {
+let count = 0;
+const interval = setInterval(() => {
+if (count++ === 8) clearInterval(interval), element.classList.remove("flash");
+else element.classList.toggle("flash");}, 500);}
+function thayThe() {
+const inputs = ["khung1", "khung2", "khung3",  "khung4", "khung5"].reduce((acc, id) => {
+acc[id] = document.getElementById(id).value;
+return acc;}, {});
+let isFilled = true;
+for (let key in inputs) {
+const inputElement = document.getElementById(key);
+if (!inputs[key].trim()) flashInput(inputElement), isFilled = false;
+else inputElement.classList.remove("flash");}
+if (!isFilled) return;
+let VanBan = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>items</key>
+<array>
+<dict>
+<key>assets</key>
+<array>
+<dict>
+<key>kind</key>
+<string>software-package</string>
+<key>url</key>
+<string>CCC</string>
+</dict>
+<dict>
+<key>kind</key>
+<string>display-image</string>
+<key>needs-shine</key> <true/>
+<key>url</key>
+<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
+</dict>
+</array>
+<key>metadata</key>
+<dict>
+<key>bundle-identifier</key>
+<string>AAA</string>
+<key>bundle-version</key>
+<string>DDD</string>
+<key>kind</key>
+<string>software</string>
+<key>title</key>
+<string>BBB</string>
+</dict>
+</dict>
+</array>
+</dict>
+</plist>`;
+VanBan = VanBan
+.replace("AAA", inputs.khung1)
+.replace("BBB", inputs.khung2)
+.replace("DDD", inputs.khung5)
+.replace("CCC", inputs.khung3.replace(/\s/g, "").replace("blob", "raw").replace("dl=0", "amp;dl=1").replace("www.dropbox.com", "dl.dropboxusercontent.com"));
+const fileName = inputs.khung4;
+const repoData = {
+EmXin: { owner: 'Nguyenhuyhoan', repo: 'EmXin' },
+TrollX: { owner: 'Nguyenhuyhoan', repo: 'TrollX' },
+Test: { owner: 'Nguyenhuyhoan', repo: 'Test' }};
+const selectedOption = document.querySelector('input[name="repo"]:checked').value;
+const { owner, repo } = repoData[selectedOption] || {};
+const token = atob('OgTZ2hwX0pEVE9nYTJaYWQ0QU9JTGh1SVZZVHdXSDFtODRMTjNJem5RRA=='.slice(3));
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${fileName}`, {
+method: 'PUT',
+headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+body: JSON.stringify({ message: 'Tải lên tệp', content: btoa(unescape(encodeURIComponent(VanBan)))})})
+.then(response => {
+if (response.ok) {
+console.log('Tệp đã được tải lên thành công');
+const customPlacement = document.getElementById("customPlacement");
+const downloadLink = document.createElement('a');
+downloadLink.href = `itms-services://?action=download-manifest&url=https://github.com/${owner}/${repo}/raw/main/${fileName}`;
+downloadLink.innerText = 'Cài Đặt';
+downloadLink.classList.add('button');
+customPlacement.appendChild(downloadLink);
+const linkContainer = document.createElement('div');
+const linkElement = document.createElement('p');
+linkElement.textContent = `Link Cài App: ${downloadLink.href}`;
+linkElement.classList.add('boxed-link');
+linkContainer.appendChild(linkElement);
+customPlacement.appendChild(linkContainer);
+} else console.error('Không thể tải lên tệp');})
+.catch(error => console.error('Đã xảy ra lỗi:', error));}
+</script>
+
+<!☘️Script Tab>
+<script>
+document.addEventListener("DOMContentLoaded", function() {openTab(event, 'tab1');});
+function openTab(evt, tabName) {
+var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("content");
+for (i = 0; i < tabcontent.length; i++) {
+tabcontent[i].style.display = "none";}
+tablinks = document.getElementsByClassName("tab");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");}
+document.getElementById(tabName).style.display = "block";
+evt.currentTarget.className += " active";}
+var defaultTab = document.getElementById("tab1");
+defaultTab.click();
+defaultTab.className += " active";
+</script>
+
+<!☘️Script Menu>
+<script>
+const body = document.body;
+body.addEventListener('click', function() {
+document.getElementById('menu-options').style.display = 'none';});
+document.getElementById('menu-icon').addEventListener('click', function(event) {
+event.stopPropagation();
+document.getElementById('menu-options').style.display = document.getElementById('menu-options').style.display === 'block' ? 'none' : 'block';});
+</script>
+
+<!🍄 Khung gửi + Direct link + Mã Hoá>
+<script>
+function encryptLinks() {var linkInput = document.getElementById("linkInput").value;
+var linksArray = linkInput.split("\n");
+var encryptedLinks = "";
+for (var i = 0; i < linksArray.length; i++) {
+var modifiedLink = linksArray[i].replace(" ", "").replace("blob", "raw").replace("dl=0", "amp;dl=1").replace("www.dropbox.com", "dl.dropboxusercontent.com");
+var encodedLink = btoa(modifiedLink);
+var encryptedLink = encodedLink;
+encryptedLinks += encryptedLink;}
+document.getElementById("encryptedLinks").innerHTML = encryptedLinks;}
+</script>
+
+<!☘️ Xoá Ads>
+<link rel="stylesheet" type="text/css" href="http://opamaaa.wap.sh/files/xqc-full.css" />
+<xt:auth skip="yes" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
